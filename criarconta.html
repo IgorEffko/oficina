@@ -4,39 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Conta</title>
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   
 </head>
 <body>
-    <div class="container mt-5 border p-3">
-
+    <form class="formulario-com-borda">
     <h1>Criar Conta</h1><br>
     
-    <b>Nome: </b>
+    <p id="nome">Nome: </p> 
 
-    <input class="form-control" type="nome" placeholder="Digite seu nome:"> <br>
+    <input id="input" class="form-control" type="nome" placeholder="Digite seu nome:"> <br>
 
-    <b>CPF: </b>
-    <input class="form-control" type="cpf" placeholder="Digite seu CPF:"> <br>
+    <p>CPF: </p> 
+    <input id="input" class="form-control" type="cpf" placeholder="Digite seu CPF:"> <br>
 
-    <b>Email: </b>
-    <input class="form-control" type="email" placeholder="you@example.com"> <br>
-
-    <b>Usuário: </b>
-    <input class="form-control" type="text" placeholder="Digite um nome de usuário:"> <br>
-
-    <b>Senha: </b>
-    <input class="form-control" type="password" placeholder="Digite sua senha"> <br>
-
-    <b>Confirme sua Senha: </b>
-    <input class="form-control" type="password" placeholder="Confirme sua senha"> <br>
-
-   <div style="margin-top: 50px;">
-
-    <button style="width: 200px; margin-left: 500px;" class="btn btn-danger btn-lg" id="criar" type="submit">Criar</button>
-
-</div>
-
+    <p>Email: </p> 
+    <div id="email" style="position: relative; display: inline-block;">
+    <i class="fa fa-envelope" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: gray;"></i>
+    <input id="input" class="form-control" type="email" placeholder="      you@example.com">
     </div>
+
+    <p>Usuário: </p> 
+    <input id="input" class="form-control" type="text" placeholder="Digite um nome de usuário:"> <br>
+
+    <p>Senha: </p> 
+    <input id="input" class="form-control" type="password" placeholder="Digite sua senha"> <br>
+
+    <p>Confirme sua Senha: </p>
+    <input id="input" class="form-control" type="password" placeholder="Confirme sua senha"> <br>
+
+  
+
+    <button  style="width: 200px; margin-left: 500px;" class="btn btn-danger btn-lg" id="criar" type="submit">Criar</button>
+
+
+</form>
+
 </body>
 </html>

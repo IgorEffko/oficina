@@ -1,0 +1,28 @@
+button {
+    background-color: rgb(238, 45, 45);
+    width: 120px;
+    height: 40px;
+    color: white;
+    border-radius: 5px;
+    border-color: rgb(238, 45, 45);
+
+}
+
+form{
+    border: 2px solid #ccc; 
+    padding: 20px;
+    border-radius: 8px;
+    margin: 50px auto;
+    height: 750px;
+    width: 750px;
+}
+
+#input{
+    width: 720px;
+    height: 35px;
+
+}
+
+
+
+
