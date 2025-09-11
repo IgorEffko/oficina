@@ -11,35 +11,38 @@
 <body>
     <form class="formulario-com-borda">
     <h1>Criar Conta</h1><br>
-    
-    <p id="nome">Nome: </p> 
+    <hr>
+    <b id="nome">Nome: </b> 
 
     <input id="input" class="form-control" type="nome" placeholder="Digite seu nome:"> <br>
 
-    <p>CPF: </p> 
+    <b id="cpf">CPF: </b> 
     <input id="input" class="form-control" type="cpf" placeholder="Digite seu CPF:"> <br>
 
-    <p>Email: </p> 
+    <b id="email">Email: </b> 
     <div id="email" style="position: relative; display: inline-block;">
     <i class="fa fa-envelope" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: gray;"></i>
     <input id="input" class="form-control" type="email" placeholder="      you@example.com">
     </div>
 
-    <p>Usuário: </p> 
+    <b id="usuario">Usuário: </b> 
     <input id="input" class="form-control" type="text" placeholder="Digite um nome de usuário:"> <br>
 
-    <p>Senha: </p> 
+    <b id="senha">Senha: </b> 
     <input id="input" class="form-control" type="password" placeholder="Digite sua senha"> <br>
 
-    <p>Confirme sua Senha: </p>
+    <b id="confirme">Confirme sua Senha: </b>
     <input id="input" class="form-control" type="password" placeholder="Confirme sua senha"> <br>
 
   
 
-    <button  style="width: 200px; margin-left: 500px;" class="btn btn-danger btn-lg" id="criar" type="submit">Criar</button>
+   <div class="btn-container">
+    <button class="btn btn-danger" id="criar" type="submit">Criar Conta</button>
+</div>
 
 
 </form>
 
 </body>
+    
 </html>
