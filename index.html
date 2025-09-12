@@ -9,70 +9,114 @@
     <script src="js/script.js"></script>
 </head>
 <body>
-  <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vistoria - EJCAR</title>
     <style>
+      
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
-            margin: 0;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
+            padding: 20px;
+            margin: 0;
         }
 
-        .container {
-            max-width: 600px;
+        .formulario-com-borda {
+            width: 100%;
+            max-width: 700px;
             background: white;
-            border: 2px solid #ddd;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            border-top: 5px solid #d32f2f;
         }
 
-        h1 {
-            color: #2c3e50;
+   
+        .formulario-com-borda h1 {
+            color: #d32f2f;
             text-align: center;
-            margin-bottom: 20px;
-            font-size: 28px;
-            font-weight: bold;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-weight: 700;
+            font-size: 32px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
         }
 
-        p {
-            color: #555;
-            margin: 15px 0;
+        .formulario-com-borda hr {
+            border: none;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #d32f2f, transparent);
+            margin: 20px 0 30px;
+        }
+
+
+        .formulario-com-borda b {
+            display: block;
+            color: #333;
+            margin-top: 22px;
+            margin-bottom: 10px;
+            font-weight: 600;
             font-size: 16px;
-            line-height: 1.5;
         }
 
-        /* Estilização dos checkboxes */
-        input[type="checkbox"] {
+
+        .formulario-com-borda .form-control {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 16px;
+            font-size: 16px;
+            background-color: #f9f9f9;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .formulario-com-borda .form-control:focus {
+            outline: none;
+            border-color: #d32f2f;
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+            background-color: #fff;
+        }
+
+        .formulario-com-borda .form-control::placeholder {
+            color: #999;
+        }
+
+     
+        .checkbox-personalizado {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 12px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .checkbox-personalizado:hover {
+            background-color: rgba(211, 47, 47, 0.05);
+        }
+
+        .checkbox-personalizado input[type="checkbox"] {
             appearance: none;
             -webkit-appearance: none;
-            width: 20px;
-            height: 20px;
-            border: 2px solid #3498db;
+            width: 22px;
+            height: 22px;
+            border: 2px solid #ddd;
             border-radius: 4px;
-            margin-right: 10px;
+            margin-right: 12px;
             position: relative;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        input[type="checkbox"]:checked {
-            background-color: #3498db;
-            border-color: #3498db;
+        .checkbox-personalizado input[type="checkbox"]:checked {
+            background-color: #d32f2f;
+            border-color: #d32f2f;
         }
 
-        input[type="checkbox"]:checked::before {
+        .checkbox-personalizado input[type="checkbox"]:checked::after {
             content: "✓";
             position: absolute;
             color: white;
@@ -83,193 +127,346 @@
             transform: translate(-50%, -50%);
         }
 
-        input[type="checkbox"]:hover {
-            border-color: #2980b9;
-            transform: scale(1.1);
-        }
-
-        /* Labels dos checkboxes */
-        input[type="checkbox"] + label {
+        .checkbox-personalizado label {
             cursor: pointer;
             font-size: 16px;
             color: #333;
-            margin-bottom: 10px;
-            display: inline-block;
-            transition: color 0.3s ease;
         }
 
-        input[type="checkbox"]:checked + label {
-            color: #2c3e50;
-            font-weight: bold;
-        }
-
-        /* Campo de texto */
-        #descrição {
+  
+        .formulario-com-borda textarea {
             width: 100%;
-            padding: 12px 15px;
-            border: 2px solid #ddd;
-            border-radius: 8px;
-            font-size: 14px;
-            margin: 10px 0 20px 0;
-            transition: all 0.3s ease;
-            box-sizing: border-box;
-        }
-
-        #descrição:focus {
-            outline: none;
-            border-color: #3498db;
-            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
-        }
-
-        #descrição::placeholder {
-            color: #999;
-        }
-
-        /* Termo de aceitação */
-        #termo {
-            display: block;
-            color: #e74c3c;
-            font-size: 18px;
-            font-weight: bold;
-            margin: 25px 0 15px 0;
-            text-align: center;
-            padding: 10px;
-            background-color: #fdf2f2;
-            border-radius: 8px;
-            border-left: 4px solid #e74c3c;
-        }
-
-        b {
-            display: block;
-            color: #555;
-            font-size: 14px;
-            line-height: 1.6;
-            margin: 15px 0;
-            padding: 15px;
-            background-color: #f8f9fa;
-            border-radius: 8px;
-            border-left: 4px solid #3498db;
-        }
-
-        /* Checkbox do termo */
-        input[type="checkbox"]:last-of-type {
-            margin: 20px 10px 20px 0;
-            vertical-align: middle;
-        }
-
-        input[type="checkbox"]:last-of-type + label {
-            font-size: 14px;
-            color: #555;
-            vertical-align: middle;
-        }
-
-        /* Botão */
-        button {
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(135deg, #27ae60, #2ecc71);
-            color: white;
-            border: none;
-            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
             font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
+            background-color: #f9f9f9;
             transition: all 0.3s ease;
-            margin-top: 20px;
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .formulario-com-borda textarea:focus {
+            outline: none;
+            border-color: #d32f2f;
+            box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+            background-color: #fff;
+        }
+
+        .termo-aceitacao {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            border: 2px solid #d32f2f;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .termo-titulo {
+            color: #d32f2f;
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        button:hover {
-            background: linear-gradient(135deg, #229954, #27ae60);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 15px rgba(39, 174, 96, 0.3);
+        .termo-texto {
+            color: #333;
+            font-size: 16px;
+            line-height: 1.6;
+            text-align: justify;
+            margin-bottom: 20px;
         }
 
-        button:active {
-            transform: translateY(0);
+ 
+        .signature-container {
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 25px 0;
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
 
-        /* Responsividade */
-        @media (max-width: 768px) {
-            .container {
-                margin: 20px;
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 24px;
-            }
-            
-            button {
-                padding: 12px;
-                font-size: 14px;
-            }
+        .signature-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 12px;
         }
 
-        /* Melhorias de acessibilidade */
-        input:focus,
-        button:focus {
-            outline: 2px solid #3498db;
-            outline-offset: 2px;
+        .signature-header h3 {
+            margin: 0;
+            color: #d32f2f;
+            font-size: 20px;
+            font-weight: bold;
         }
 
-        /* Estilo para os itens de checklist */
-        .checklist-item {
-            margin-bottom: 12px;
-            padding: 8px;
+        .clear-btn {
+            background-color: #000;
+            color: white;
+            border: none;
+            padding: 10px 18px;
             border-radius: 6px;
-            transition: background-color 0.3s ease;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            font-weight: 500;
         }
 
-        .checklist-item:hover {
-            background-color: #f8f9fa;
+        .clear-btn:hover {
+            background-color: #333;
+        }
+
+        #signaturePad {
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            touch-action: none;
+            width: 100%;
+            cursor: crosshair;
+        }
+
+        .signature-footer {
+            margin-top: 12px;
+            color: #666;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 35px;
+            width: 100%;
+        }
+
+   
+        .btn-danger {
+            background: linear-gradient(135deg, #d32f2f 0%, #b71c1c 100%);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(183, 28, 28, 0.3);
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            width: 200px;
+            text-align: center;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .btn-danger:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(183, 28, 28, 0.4);
+        }
+
+        .btn-danger:active {
+            transform: translateY(1px);
+        }
+
+        .btn-danger::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-danger:hover::before {
+            left: 100%;
+        }
+
+  
+        @media (max-width: 768px) {
+            .formulario-com-borda {
+                padding: 25px 20px;
+            }
+            
+            .formulario-com-borda h1 {
+                font-size: 26px;
+            }
+            
+            .btn-danger {
+                width: 100%;
+                padding: 14px;
+            }
+            
+            .signature-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .signature-header h3 {
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Vistoria</h1>
-        <p>O veículo chegou com: </p>
-         
-        <p>Selecione: </p>
+    <div class="formulario-com-borda">
+        <h1>Vistoria Veicular</h1>
+        <hr>
+        
+        <b>O veículo chegou com:</b>
+        <p>Selecione os itens presentes:</p>
 
-        <div class="checklist-item">
+        <div class="checkbox-personalizado">
             <input type="checkbox" id="boxpneu">
             <label for="boxpneu">Pneu</label>
         </div>
-        
-        <div class="checklist-item">
+        <div class="checkbox-personalizado">
             <input type="checkbox" id="boxstep">
             <label for="boxstep">Step</label>
         </div>
-        
-        <div class="checklist-item">
+        <div class="checkbox-personalizado">
             <input type="checkbox" id="boxmacaco">
             <label for="boxmacaco">Macaco</label>
         </div>
-        
-        <div class="checklist-item">
+        <div class="checkbox-personalizado">
             <input type="checkbox" id="boxchave">
             <label for="boxchave">Chave de Roda</label>
         </div>
         
-        <p>Outro:</p>
+        <b>Outros itens:</b>
+        <textarea id="descricao" placeholder="Ex: óculos, bolsa, sacola, documentos..."></textarea>
 
-        <input type="text" id="descrição" placeholder="ex: óculos, bolsa, sacola"><br>
-
-        <b id="termo">TERMO DE ACEITAÇÃO!</b>
-        <b>Eu, proprietário do veículo [Marca e Modelo do Veículo], placa [Placa do Veículo], declaro, para todos os fins de direito, que concordo e atesto que o meu veículo entrou nas instalações da oficina EJCAR com os seguintes objetos em seu interior. Compreendo que esta lista representa os itens presentes no veículo no momento da sua entrada na oficina. Cascavel-Paraná!</b>
-        <b>Alerta: Você leu e concordou com as condições?</b>
-
-        <div class="checklist-item">
-            <input type="checkbox" id="termoaceite">
-            <label for="termoaceite">Eu li e concordo com as condições colocadas acima!</label>
+        <div class="termo-aceitacao">
+            <div class="termo-titulo">Termo de Aceitação</div>
+            <div class="termo-texto">
+                Eu, proprietário do veículo [Marca e Modelo do Veículo], placa [Placa do Veículo], 
+                declaro, para todos os fins de direito, que concordo e atesto que o meu veículo 
+                entrou nas instalações da oficina EJCAR com os seguintes objetos em seu interior. 
+                Compreendo que esta lista representa os itens presentes no veículo no momento da 
+                sua entrada na oficina. Cascavel-Paraná!
+            </div>
+            
+            <div class="checkbox-personalizado" style="justify-content: center;">
+                <input type="checkbox" id="termoCheckbox">
+                <label for="termoCheckbox">Eu li e concordo com as condições apresentadas</label>
+            </div>
         </div>
 
-        <button>Concluir</button>
+        <div class="signature-container">
+            <div class="signature-header">
+                <h3><i class="fas fa-signature"></i> Assinatura Digital</h3>
+                <button type="button" class="clear-btn" id="clearSignature">Limpar Assinatura</button>
+            </div>
+            <canvas id="signaturePad" width="500" height="200"></canvas>
+            <div class="signature-footer">
+        </div>
+
+   
+        <div class="btn-container">
+            <button class="btn-danger" id="concluirBtn">Concluir</button>
+        </div>
     </div>
-</body>
-</html>
-</body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const canvas = document.getElementById('signaturePad');
+            const clearBtn = document.getElementById('clearSignature');
+            const signatureData = document.getElementById('signatureData');
+            const ctx = canvas.getContext('2d');
+            
+        
+            const scale = window.devicePixelRatio || 1;
+            canvas.width = canvas.offsetWidth * scale;
+            canvas.height = canvas.offsetHeight * scale;
+            ctx.scale(scale, scale);
+            
+            
+            ctx.lineWidth = 2;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+            ctx.strokeStyle = '#000';
+            
+            let isDrawing = false;
+            let lastX = 0;
+            let lastY = 0;
+            
+         
+            function startDrawing(e) {
+                isDrawing = true;
+                const pos = getPosition(e);
+                [lastX, lastY] = [pos.x, pos.y];
+            }
+            
+         
+            function draw(e) {
+                if (!isDrawing) return;
+                
+                const pos = getPosition(e);
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(pos.x, pos.y);
+                ctx.stroke();
+                
+                [lastX, lastY] = [pos.x, pos.y];
+              
+                signatureData.value = canvas.toDataURL();
+            }
+            
+     
+            function stopDrawing() {
+                isDrawing = false;
+                signatureData.value = canvas.toDataURL();
+            }
+
+            function getPosition(e) {
+                const rect = canvas.getBoundingClientRect();
+                let clientX, clientY;
+                
+                if (e.type.includes('touch')) {
+                    clientX = e.touches[0].clientX;
+                    clientY = e.touches[0].clientY;
+                } else {
+                    clientX = e.clientX;
+                    clientY = e.clientY;
+                }
+                
+                return {
+                    x: (clientX - rect.left) * (canvas.width / rect.width / scale),
+                    y: (clientY - rect.top) * (canvas.height / rect.height / scale)
+                };
+            }
+            
+           
+            function clearSignature() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                signatureData.value = '';
+            }
+            
+          
+            canvas.addEventListener('mousedown', startDrawing);
+            canvas.addEventListener('mousemove', draw);
+            canvas.addEventListener('mouseup', stopDrawing);
+            canvas.addEventListener('mouseout', stopDrawing);
+            
+     
+            canvas.addEventListener('touchstart', startDrawing);
+            canvas.addEventListener('touchmove', draw);
+            canvas.addEventListener('touchend', stopDrawing);
+
+            clearBtn.addEventListener('click', clearSignature);
+            
+    
+            const concluirBtn = document.getElementById('concluirBtn');
+            concluirBtn.addEventListener('click', function() {
+                alert('Vistoria registrada com sucesso! Obrigado.');
+            });
+        });
+    </script>
 </html>
