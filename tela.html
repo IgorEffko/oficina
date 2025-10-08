@@ -28,7 +28,6 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            
         }
 
         /* ----------------------- HEADER (VERMELHO SÓLIDO) ----------------------- */
@@ -146,21 +145,36 @@
             border-bottom-color: var(--primary-red);
         }
 
-        /* ----------------------- MAIN CONTENT ----------------------- */
+        /* ----------------------- MAIN CONTENT (ÁREA PRINCIPAL COM IMAGEM) ----------------------- */
         .main-content {
             flex-grow: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 50px 40px;
+            /* Aumentei o padding para dar mais espaço à imagem */
+            padding: 100px 40px; 
             text-align: center;
+            
+            /* === PROPRIEDADES PARA A IMAGEM DE FUNDO COBRIR A ÁREA === */
+            background-image: url('WhatsApp Image 2025-10-03 at 11.10.03.jpeg');
+            background-size: cover; /* Faz a imagem cobrir todo o fundo da div */
+            background-position: center; /* Centraliza a imagem */
+            background-repeat: no-repeat; /* Impede a repetição */
+            
+            /* Overlay escuro para garantir que o texto seja legível */
+            background-blend-mode: darken;
+            background-color: rgba(0, 0, 0, 0.4); /* Cor de fundo misturada com a imagem */
         }
-
+        
+        /* Estilo da mensagem sobre a imagem */
         .hero-message {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             color: var(--text-light);
-            font-weight: 300;
+            font-weight: 700;
+            /* Sombra para destacar o texto sobre a imagem de fundo */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+            max-width: 90%;
         }
 
         /* ----------------------- FOOTER (FUNDO VERMELHO SÓLIDO) ----------------------- */
@@ -219,6 +233,9 @@
              .home-icon {
                 font-size: 1.2rem;
             }
+            .hero-message {
+                font-size: 2rem;
+            }
         }
         @media (max-width: 768px) {
             .header {
@@ -234,6 +251,9 @@
             }
             .main-options {
                 gap: 15px;
+            }
+            .hero-message {
+                font-size: 1.5rem;
             }
             .footer {
                 flex-direction: column;
@@ -276,7 +296,7 @@
         <div></div>
 
     <main class="main-content">
-     <img src="WhatsApp Image 2025-10-03 at 11.10.03.jpeg" alt="">
+        
     </main>
 
     <footer class="footer">
