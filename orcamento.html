@@ -7,17 +7,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="css/orcamento.css">
     
+    
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1><i class="fas fa-file-invoice-dollar"></i> Sistema de Orçamento</h1>
+            
         </div>
        
-        <div class="form-container">
-            <form id="budget-form" action="/action_page.php">
-                <h2 class="section-title"><i class="fas fa-car"></i> Informações do Veículo</h2>
-               
+   
+                        <hr>
+
+
                 <div class="form-group">
                     <div class="input-group">
                         <label for="chassi" class="form-label"><i class="fas fa-barcode"></i> Chassi:</label>
@@ -40,7 +42,7 @@
                         <label for="product-name" class="form-label">Produto:</label>
                         <div class="input-icon">
                             <i class="fas fa-box"></i>
-                            <input type="text" class="form-control" id="product-name" placeholder="Nome do produto ou serviço">
+                            <input type="text" class="form-control" id="produto" placeholder="Nome do produto ou serviço">
                         </div>
                     </div>
                    
@@ -53,32 +55,16 @@
                     <label for="product-price" class="form-label">Mão de obra:</label>
                     <div class="input-icon">
                         <i class="fas fa-dollar-sign"></i>
-                        <input type="number" class="form-control" id="product-price" placeholder="0,00" min="0" step="0.01">
+                        <input type="number" class="form-control" id="mao_de_obra" placeholder="0,00" min="0" step="0.01">
                     </div>
                 </div>
                
-                <button type="submit" class="btn btn-submit">
+                <button type="button" class="btn btn-submit" onclick="finalizar()">
                     <i class="fas fa-check-circle"></i> Finalizar Orçamento
                 </button>
             </form>
         </div>
     </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const addProductBtn = document.getElementById('add-product-btn');
-           
-            addProductBtn.addEventListener('click', function() {
-                alert('Funcionalidade "Mais Produtos" seria implementada aqui!');
-              
-            });
-           
-         
-            document.getElementById('budget-form').addEventListener('submit', function(e) {
-                e.preventDefault();
-                alert('Orçamento finalizado com sucesso!');
-            });
-        });
-    </script>
+       <script src="js/orcamento.js"></script>
 </body>
-</html>
+</html
